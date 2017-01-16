@@ -14,6 +14,9 @@
 		CF9FB99B1E2CABCC00E409CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9FB9991E2CABCC00E409CA /* LaunchScreen.storyboard */; };
 		CF9FB9A61E2CABCC00E409CA /* ModelsAndTableCellsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FB9A51E2CABCC00E409CA /* ModelsAndTableCellsTests.swift */; };
 		CF9FB9B11E2CABCC00E409CA /* ModelsAndTableCellsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FB9B01E2CABCC00E409CA /* ModelsAndTableCellsUITests.swift */; };
+		CFBF333D1E2D190300ED73D2 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBF333C1E2D190300ED73D2 /* ViewController2.swift */; };
+		CFBF333F1E2D194600ED73D2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBF333E1E2D194600ED73D2 /* BaseViewController.swift */; };
+		CFBF33431E2D267300ED73D2 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFBF33421E2D267300ED73D2 /* Main2.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		CF9FB9AC1E2CABCC00E409CA /* ModelsAndTableCellsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelsAndTableCellsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9FB9B01E2CABCC00E409CA /* ModelsAndTableCellsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsAndTableCellsUITests.swift; sourceTree = "<group>"; };
 		CF9FB9B21E2CABCC00E409CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFBF333C1E2D190300ED73D2 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		CFBF333E1E2D194600ED73D2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CFBF33421E2D267300ED73D2 /* Main2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 				CF9FB9971E2CABCC00E409CA /* Assets.xcassets */,
 				CF9FB9991E2CABCC00E409CA /* LaunchScreen.storyboard */,
 				CF9FB99C1E2CABCC00E409CA /* Info.plist */,
+				CFBF333E1E2D194600ED73D2 /* BaseViewController.swift */,
 			);
 			path = ModelsAndTableCells;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				CF9FB9941E2CABCC00E409CA /* Main.storyboard */,
+				CFBF33421E2D267300ED73D2 /* Main2.storyboard */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -137,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				CF9FB9921E2CABCC00E409CA /* ViewController.swift */,
+				CFBF333C1E2D190300ED73D2 /* ViewController2.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 			files = (
 				CF9FB99B1E2CABCC00E409CA /* LaunchScreen.storyboard in Resources */,
 				CF9FB9981E2CABCC00E409CA /* Assets.xcassets in Resources */,
+				CFBF33431E2D267300ED73D2 /* Main2.storyboard in Resources */,
 				CF9FB9961E2CABCC00E409CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9FB9931E2CABCC00E409CA /* ViewController.swift in Sources */,
+				CFBF333F1E2D194600ED73D2 /* BaseViewController.swift in Sources */,
 				CF9FB9911E2CABCC00E409CA /* AppDelegate.swift in Sources */,
+				CFBF333D1E2D190300ED73D2 /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ModelsAndTableCells/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = directworksmedia.ModelsAndTableCells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ModelsAndTableCells/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = directworksmedia.ModelsAndTableCells;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +534,7 @@
 				CF9FB9B71E2CABCC00E409CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF9FB9B81E2CABCC00E409CA /* Build configuration list for PBXNativeTarget "ModelsAndTableCellsTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +543,7 @@
 				CF9FB9BA1E2CABCC00E409CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF9FB9BB1E2CABCC00E409CA /* Build configuration list for PBXNativeTarget "ModelsAndTableCellsUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +552,7 @@
 				CF9FB9BD1E2CABCC00E409CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

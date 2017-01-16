@@ -22,38 +22,64 @@ class SampleData {
     init() {}
 }
 
-class ViewController: UIViewController {
+
+class ViewController: BaseViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
     
     var sampleData = [SampleData]()
     
-    let data = [
-        ["key": "Mortgage Holder", "value": "Ulyses Rico"],
-        ["key": "Contact Number", "value": "908-818-1572"],
-        ["key": "Monthly Payment Amount", "value": "$300"],
-        ["key": "Due Date", "value": "24th"],
-        ["key": "Monthly Payment Amount", "value": "$300"],
-        ["key": "Contact Number", "value": "908-818-1572"],
-        ["key": "Mortgage Holder", "value": "Ulyses Rico"],
-        ["key": "Monthly Payment Amount", "value": "$300"],
-        ["key": "Due Date", "value": "24th"],
-        ["key": "Monthly Payment Amount", "value": "$300"],
-        ["key": "Contact Number", "value": "908-818-1572"],
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.title = "HOME"
+        
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .done, target: self,
+                                         action: #selector(self.saveButtonAction(sender:)))
+        self.navigationItem.setRightBarButton(saveButton, animated: false)
+        
+        self.configureTableView()
+        self.loadData()
+        
+    }
+    
+    func saveButtonAction(sender: AnyObject) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController2") as? ViewController2 else { return }
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationItem.backBarButtonItem = backButton
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func configureTableView() {
         self.mainTableView.delegate = self
         self.mainTableView.dataSource = self
+        self.mainTableView.preservesSuperviewLayoutMargins = false
+        self.mainTableView.layoutMargins = UIEdgeInsets.zero
+        self.mainTableView.separatorInset = UIEdgeInsets.zero
         self.mainTableView.keyboardDismissMode = .onDrag
+    }
+    
+    func loadData() {
+        let data = [
+            ["key": "Mortgage Holder", "value": "Ulyses Rico"],
+            ["key": "Contact Number", "value": "908-818-1572"],
+            ["key": "Monthly Payment Amount", "value": "$300"],
+            ["key": "Due Date", "value": "24th"],
+            ["key": "Monthly Payment Amount", "value": "$300"],
+            ["key": "Contact Number", "value": "908-818-1572"],
+            ["key": "Mortgage Holder", "value": "Ulyses Rico"],
+            ["key": "Monthly Payment Amount", "value": "$300"],
+            ["key": "Due Date", "value": "24th"],
+            ["key": "Monthly Payment Amount", "value": "$300"],
+            ["key": "Contact Number", "value": "908-818-1572"],
+        ]
         
-        for datum in self.data {
+        for datum in data {
             self.sampleData.append(SampleData(key: datum["key"]!, value: datum["value"] as AnyObject))
         }
-        
     }
 
 }
@@ -78,8 +104,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ViewControllerTableCell {
             
-            cell.sampleData = self.sampleData[indexPath.row]
-            cell.tableView = self.mainTableView
+            cell.sampleData = self.sampleData[indexPath.row]    // Data should be loaded first
+            cell.tableView = self.mainTableView                 // before 'table view' is referenced
             
             return cell
             
@@ -111,19 +137,17 @@ class ViewControllerTableCell: UITableViewCell, UITextViewDelegate {
         }
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        self.sampleData.value = textView.text as AnyObject?
+        self.tableView?.beginUpdates()
+        self.tableView?.endUpdates()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.selectionStyle = .none
         
-    }
-    
-    
-    func textViewDidChange(_ textView: UITextView) {
-        self.sampleData.value = textView.text as AnyObject?
-        self.tableView?.beginUpdates()
-        self.tableView?.endUpdates()
     }
     
 }

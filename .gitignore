@@ -1,0 +1,11 @@
+*.DS_Store
+*.lock
+*.xcworkspace
+*.mobileprovision
+
+ModelsAndTableCells.app.dSYM.zip
+ModelsAndTableCells.ipa
+
+Pods
+ModelsAndTableCells.xcodeproj/xcuserdata/*
+iOSInjectionProject/
